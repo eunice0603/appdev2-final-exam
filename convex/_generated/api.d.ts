@@ -10,6 +10,7 @@
 
 import type * as seeder from "../seeder.js";
 import type * as todos from "../todos.js";
+import type * as userActions from "../userActions.js";
 import type * as users from "../users.js";
 
 import type {
@@ -21,6 +22,7 @@ import type {
 declare const fullApi: ApiFromModules<{
   seeder: typeof seeder;
   todos: typeof todos;
+  userActions: typeof userActions;
   users: typeof users;
 }>;
 

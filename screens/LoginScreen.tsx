@@ -10,7 +10,7 @@ import {
 } from "react-native";
 import Ionicons from "@react-native-vector-icons/ionicons";
 
-import { useMutation } from "convex/react";
+import { useAction } from "convex/react";
 import { api } from "../convex/_generated/api";
 import { Id } from "../convex/_generated/dataModel";
 
@@ -22,7 +22,7 @@ const LoginScreen = ({ onLogin } : LoginProps) => {
     const [email, setEmail] = useState('')
     const [password, setPassword] = useState('')
 
-    const loginMutation = useMutation(api.users.login)
+    const loginAction = useAction(api.userActions.login)
 
     const handleLogin = async () => {
         if (!email || !password) {
@@ -30,7 +30,7 @@ const LoginScreen = ({ onLogin } : LoginProps) => {
         }
 
         try {
-            const result = await loginMutation({
+            const result = await loginAction({
                 username: email,
                 password
             })
