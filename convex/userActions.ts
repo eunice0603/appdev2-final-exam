@@ -17,6 +17,7 @@ export const login = action({
 
 export const register = action({
     args: { username: v.string(), password: v.string(), fullname: v.string() },
+    // Updated to accept and save fullname alongside username and hashed password
     handler: async (ctx, args): Promise<any> => {
         const user = await ctx.runQuery(internal.users.findUser, { username: args.username });
         if (user) return { success: false, message: "User already exists!" };
